@@ -4,8 +4,8 @@ creation_rules:
     encrypted_regex: "^(data|stringData)$"
     key_groups:
       - age:
-          - ${BOOTSTRAP_AGE_PUBLIC_KEY}
+          - age1tcxgqkt46vx0khyjxv88agewx350dv7tgqfr526456dmjacpveest9ncdk
   - path_regex: terraform/.*\.sops\.ya?ml
     key_groups:
       - age:
-          - ${BOOTSTRAP_AGE_PUBLIC_KEY}
+          - age1tcxgqkt46vx0khyjxv88agewx350dv7tgqfr526456dmjacpveest9ncdk

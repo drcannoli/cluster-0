@@ -131,13 +131,13 @@ It is advisable to install [pre-commit](https://pre-commit.com/) and the pre-com
 
     ```sh
     mkdir -p ~/.config/sops/age
-    mv age.agekey ~/.config/sops/age/keys.txt
+    mv age.agekey /home/.config/sops/age/keys.txt
     ```
 
 3. Export the `SOPS_AGE_KEY_FILE` variable in your `bashrc`, `zshrc` or `config.fish` and source it, e.g.
 
     ```sh
-    export SOPS_AGE_KEY_FILE=~/.config/sops/age/keys.txt
+    export SOPS_AGE_KEY_FILE=/home/.config/sops/age/keys.txt
     source ~/.bashrc
     ```
 
