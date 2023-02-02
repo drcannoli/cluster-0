@@ -1,0 +1,31 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-media-pv
+spec:
+  capacity:
+    storage: 1Mi
+  nfs:
+    server: 10.10.100.191
+    path: >-
+      /mnt/pool-01/nfs/media
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: nfs-client
+  volumeMode: Filesystem
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: nfs-media-pvc
+  namespace: media
+spec:
+  storageClassName: nfs-client
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Mi
+  volumeName: nfs-media-pv
