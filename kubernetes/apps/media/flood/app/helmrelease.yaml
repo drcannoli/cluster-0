@@ -36,6 +36,12 @@ spec:
         tls:
           - hosts:
               - *host
+    podSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+      fsGroupChangePolicy: "OnRootMismatch"
+      supplementalGroups: [10000]
     persistence:
       config:
         enabled: true
@@ -72,9 +78,9 @@ spec:
         image: jesec/rtorrent:latest
         env:
           - name: PUID
-            value: "1001"
+            value: "568"
           - name: PGID
-            value: "1001"
+            value: "568"
         livenessProbe:
           failureThreshold: 3
           periodSeconds: 10
