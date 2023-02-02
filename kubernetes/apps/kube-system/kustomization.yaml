@@ -6,4 +6,5 @@ resources:
   - ./democratic-csi-iscsi/ks.yaml
   - ./local-path-provisioner/ks.yaml
   - ./metrics-server/ks.yaml
+  - ./nfs-external-provisioner/ks.yaml
   - ./reloader/ks.yaml
