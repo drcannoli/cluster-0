@@ -8,3 +8,7 @@ configMapGenerator:
   - name: rtorrent-flood-configmap
     files:
       - rtorrent.rc
+generatorOptions:
+  disableNameSuffixHash: true
+  annotations:
+    kustomize.toolkit.fluxcd.io/substitute: disabled
