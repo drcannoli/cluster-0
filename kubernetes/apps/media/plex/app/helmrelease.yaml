@@ -58,7 +58,7 @@ spec:
         type: emptyDir
         medium: Memory
       nfs-media-pvc:
-        enabled: true
+        enabled: false
         existingClaim: nfs-media-pvc
         mountPath: /data
         readOnly: false
