@@ -57,6 +57,12 @@ spec:
         type: emptyDir
         # medium: Memory
         mountPath: /tmp
+      rtorrent-rc:
+        enabled: true
+        type: configMap
+        name: rtorrent-flood-configmap
+        subPath: rtorrent.rc
+        mountPath: /etc/rtorrent.rc
     probes:
       liveness:
         enabled: true
@@ -130,7 +136,8 @@ spec:
             subPath: torrents
           - mountPath: /socket
             name: socket
-
+          - mountPath: /etc/rtorrent.rc
+            name: rtorrent-rc
     service:
       bt:
         enabled: true
