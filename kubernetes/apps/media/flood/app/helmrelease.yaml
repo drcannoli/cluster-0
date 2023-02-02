@@ -22,7 +22,7 @@ spec:
     env:
       FLOOD_OPTION_RUNDIR: /config
       FLOOD_OPTION_AUTH: "none"
-      FLOOD_OPTION_RTSOCKET: "/tmp/rtorrent.sock"
+      FLOOD_OPTION_RTSOCKET: "/config/.local/share/rtorrent/rtorrent.sock"
     ingress:
       main:
         enabled: true
@@ -87,6 +87,8 @@ spec:
             value: "568"
           - name: PGID
             value: "568"
+          - name: HOME
+            value: "/config"
         livenessProbe:
           failureThreshold: 3
           periodSeconds: 10
