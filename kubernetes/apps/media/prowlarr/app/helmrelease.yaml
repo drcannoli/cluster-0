@@ -2,14 +2,14 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: overseerr
+  name: prowlarr
   namespace: media
 spec:
   interval: 15m
   chart:
     spec:
-      chart: overseerr
-      version: 5.4.2
+      chart: prowlarr
+      version: 4.5.2
       sourceRef:
         kind: HelmRepository
         name: k8s-at-home
@@ -27,8 +27,8 @@ spec:
     keepHistory: false
   values:
     image:
-      repository: ghcr.io/sct/overseerr
-      tag: 1.32.5
+      repository: ghcr.io/onedr0p/prowlarr-nightly
+      tag: 1.1.3.2490
     env:
       TZ: America/New_York
     ingress:
@@ -37,7 +37,7 @@ spec:
         annotations:
           kubernetes.io/ingress.class: "nginx"
         hosts:
-          - host: &host "requests.${SECRET_DOMAIN}"
+          - host: &host "prowlarr.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
