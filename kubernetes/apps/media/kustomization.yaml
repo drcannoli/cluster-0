@@ -5,7 +5,9 @@ resources:
   - ./namespace.yaml
   - ./bazarr/ks.yaml
   - ./flood/ks.yaml
+  - ./overseerr/ks.yaml
   - ./plex/ks.yaml
   - ./radarr/ks.yaml
+  - ./sabnzbd/ks.yaml
   - ./sonarr/ks.yaml
   - ./tautulli/ks.yaml

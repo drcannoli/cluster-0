@@ -1,0 +1,70 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: sabnzbd
+  namespace: media
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: sabnzbd
+      version: 9.4.2
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home
+        namespace: flux-system
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    image:
+      repository: ghcr.io/onedr0p/sabnzbd
+      tag: 3.7.1
+    env:
+      TZ: "America/New_York"
+      SABNZBD__HOST_WHITELIST_ENTRIES: >-
+        sabnzbd,
+        sabnzbd.media,
+        sabnzbd.media.svc,
+        sabnzbd.media.svc.cluster,
+        sabnzbd.media.svc.cluster.local,
+        *host
+    ingress:
+      main:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: "nginx"
+        hosts:
+          - host: &host "sabnzbd.${SECRET_DOMAIN}"
+            paths:
+              - path: /
+                pathType: Prefix
+        tls:
+          - hosts:
+              - *host
+    persistence:
+      config:
+        enabled: true
+        storageClass: "freenas-iscsi-csi"
+        size: 5Gi
+      media:
+        enabled: true
+        existingClaim: nfs-media-pvc
+        mountPath: /mnt/media
+      incomplete:
+        enabled: true
+        type: emptyDir
+    podSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+      fsGroupChangePolicy: "OnRootMismatch"
