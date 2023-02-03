@@ -2,39 +2,42 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: plex
+  name: bazarr
   namespace: media
 spec:
   interval: 15m
   chart:
     spec:
-      chart: plex
-      version: 6.4.3
+      chart: bazarr
+      version: 10.6.2
       sourceRef:
         kind: HelmRepository
         name: k8s-at-home
         namespace: flux-system
+  maxHistory: 3
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
   values:
     image:
-      repository: ghcr.io/linuxserver/plex
-      tag: 1.30.2.6563-3d4dc0cce-ls150
+      repository: ghcr.io/onedr0p/bazarr
+      tag: 1.1.4
     env:
-      TZ: "America/New_York"
-    service:
-      main:
-        type: LoadBalancer
-        externalTrafficPolicy: Local
-        annotations:
-          metallb.universe.tf/allow-shared-ip: plex
-        port:
-          port: 32400
+      TZ: America/New_York
     ingress:
       main:
         enabled: true
         annotations:
           kubernetes.io/ingress.class: "nginx"
         hosts:
-          - host: &host "channel.${SECRET_DOMAIN}"
+          - host: &host "bazarr.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
@@ -45,24 +48,25 @@ spec:
       config:
         enabled: true
         storageClass: "freenas-iscsi-csi"
-        accessMode: ReadWriteOnce
-        size: 135Gi
-      transcode:
-        enabled: false
-        existingClaim: nfs-media-pvc
-        subPath: Videos/transcode/
-        readOnly: false
-      tmp:
-        enabled: true
-        type: emptyDir
-        medium: Memory
-      nfs-media-pvc:
+        size: 5Gi
+      media:
         enabled: true
         existingClaim: nfs-media-pvc
         mountPath: /mnt/media
-        readOnly: false
     podSecurityContext:
       runAsUser: 568
       runAsGroup: 568
       fsGroup: 568
       fsGroupChangePolicy: "OnRootMismatch"
+    sidecars:
+      subcleaner:
+        image: k8s.gcr.io/git-sync/git-sync:v3.6.3
+        imagePullPolicy: IfNotPresent
+        args:
+          - --repo=https://github.com/KBlixt/subcleaner.git
+          - --branch=master
+          - --depth=1
+          - --wait=21600 # 6 hours
+          - --root=/add-ons/subcleaner
+        volumeMounts:
+          - { name: add-ons, mountPath: /add-ons }
