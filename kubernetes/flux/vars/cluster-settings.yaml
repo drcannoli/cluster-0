@@ -5,7 +5,7 @@ metadata:
   name: cluster-settings
   namespace: flux-system
 data:
-  TIMEZONE: "America/New_York"
+  TIMEZONE: "America/Toronto"
   METALLB_LB_RANGE: "172.16.100.200-172.16.100.209"
   METALLB_K8S_GATEWAY_ADDR: "172.16.100.200"
   METALLB_INGRESS_ADDR: "172.16.100.201"

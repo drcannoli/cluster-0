@@ -4,11 +4,11 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - ./bazarr/ks.yaml
-  - ./flood/ks.yaml
   - ./overseerr/ks.yaml
   - ./plex/ks.yaml
   - ./prowlarr/ks.yaml
   - ./radarr/ks.yaml
+  - ./rtorrent-flood/ks.yaml
   - ./sabnzbd/ks.yaml
   - ./sonarr/ks.yaml
   - ./tautulli/ks.yaml
