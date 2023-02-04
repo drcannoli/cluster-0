@@ -48,9 +48,9 @@ spec:
         accessMode: ReadWriteOnce
         size: 135Gi
       transcode:
-        enabled: false
-        existingClaim: nfs-media-pvc
-        subPath: Videos/transcode/
+        enabled: true
+        existingClaim: clusterplex-transcode-pvc
+        subPath: /transcode
         readOnly: false
       tmp:
         enabled: true
