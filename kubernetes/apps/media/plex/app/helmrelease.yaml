@@ -29,9 +29,6 @@ spec:
       TRANSCODE_OPERATING_MODE: both
       LOCAL_RELAY_ENABLED: "0"
       LOCAL_RELAY_PORT: "32499"
-    envFrom:
-      - configMapRef:
-          name: clusterplex-pms-config
     service:
       main:
         type: LoadBalancer
