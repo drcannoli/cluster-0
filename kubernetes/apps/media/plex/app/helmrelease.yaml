@@ -50,7 +50,7 @@ spec:
       transcode:
         enabled: true
         existingClaim: clusterplex-transcode-pvc
-        subPath: /transcode
+        mountPath: /transcode
         readOnly: false
       tmp:
         enabled: true
