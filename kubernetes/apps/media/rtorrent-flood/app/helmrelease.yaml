@@ -118,5 +118,3 @@ spec:
           capabilities:
             add:
               - NET_ADMIN
-        env:
-          KILLSWITCH: "true"
