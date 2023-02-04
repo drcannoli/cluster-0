@@ -197,7 +197,7 @@ spec:
                 name: clusterplex-worker-config
           volumeMounts:
             - name: data
-              mountPath: /data
+              mountPath: /mnt/media
             - name: codecs
               mountPath: /codecs
             - name: transcode
