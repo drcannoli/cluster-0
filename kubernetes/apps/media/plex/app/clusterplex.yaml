@@ -2,28 +2,6 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: clusterplex-pms-config
-  namespace: media
-  labels:
-    app.kubernetes.io/name: clusterplex-pms-config
-    app.kubernetes.io/part-of: clusterplex
-data:
-  VERSION: docker
-  TZ: America/New_York
-  PGID: "1000"
-  PUID: "1000"
-  DOCKER_MODS: "ghcr.io/pabloromeo/clusterplex_dockermod:latest"
-  ORCHESTRATOR_URL: "http://clusterplex-orchestrator:3500"
-  PMS_IP: "10.99.66.38"
-  PMS_PORT: "32400"
-  TRANSCODER_VERBOSE: "1"
-  TRANSCODE_OPERATING_MODE: both
-  LOCAL_RELAY_ENABLED: "0"
-  LOCAL_RELAY_PORT: "32499"
----
-kind: ConfigMap
-apiVersion: v1
-metadata:
   name: clusterplex-orchestrator-config
   namespace: media
   labels:

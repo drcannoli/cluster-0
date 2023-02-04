@@ -19,7 +19,16 @@ spec:
       repository: ghcr.io/linuxserver/plex
       tag: 1.30.2.6563-3d4dc0cce-ls150
     env:
+      VERSION: docker
       TZ: "America/New_York"
+      DOCKER_MODS: "ghcr.io/pabloromeo/clusterplex_dockermod:latest"
+      ORCHESTRATOR_URL: "http://clusterplex-orchestrator:3500"
+      PMS_IP: "10.99.66.38"
+      PMS_PORT: "32400"
+      TRANSCODER_VERBOSE: "1"
+      TRANSCODE_OPERATING_MODE: both
+      LOCAL_RELAY_ENABLED: "0"
+      LOCAL_RELAY_PORT: "32499"
     envFrom:
       - configMapRef:
           name: clusterplex-pms-config
