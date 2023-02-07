@@ -57,8 +57,8 @@ spec:
         size: 5Gi
       data:
         enabled: true
-        existingClaim: nfs-downloads-pvc
-        mountPath: /mnt/media/Downloads
+        existingClaim: nfs-media-pvc
+        mountPath: /mnt/media
     config: |
       session.use_lock.set = no
       method.insert = cfg.basedir,  private|const|string, (cat,(fs.homedir),"/.local/share/rtorrent/")
