@@ -76,6 +76,12 @@ sonarr:
           - 44a8ee6403071dd7b8a3a8dd3fe8cb20 # VRV
           # Anime
           - c81bbfb47fed3d5a3ad027d077f889de # Anime BD Tier 08 (Mini Encodes)
+          - e0014372773c8f0e1bef8824f00c7dc4 # Anime Web Tier 01 (Muxers)
+          - 19180499de5ef2b84b6ec59aae444696 # Anime Web Tier 02 (Top FanSubs)
+          - c27f2ae6a4e82373b0f1da094e2489ad # Anime Web Tier 03 (Official Subs)
+          - 4fd5528a3a8024e6b49f9c67053ea5f3 # Anime Web Tier 04 (Official Subs)
+          - 29c2a13d091144f63307e4a8ce963a39 # Anime Web Tier 05 (FanSubs)
+          - dc262f88d74c651b12e9d90b39f6c753 # Anime Web Tier 06 (FanSubs)
           - 418f50b10f1907201b6cfdf881f467b7 # Anime Dual Audio
           - 026d5aadd1a6b4e550b134cb6c72b3ca # Uncensored
           - 273bd326df95955e1b6c26527d1df89b # v1
@@ -83,13 +89,9 @@ sonarr:
           - 0e5833d3af2cc5fa96a0c29cd4477feb # v3
           - 4fc15eeb8f2f9a749f918217d4234ad8 # v4
           # Unwanted
-          - 32b367365729d530ca1c124a0b180c64 # Bad Dual Groups
-          - 85c61753df5da1fb2aab6f2a47426b09 # BR-DISK
           - 9c14d194486c4014d422adc64092d794 # Dubs Only
-          - 9c11cd3f07101cdba90a2d81cf0e56b4 # LQ
           - 82d40da2bc6923f41e14394075dd4b03 # No-RlsGroup
           - e1a997ddb54e3ecbfe06341ad323c458 # Obfuscated
-          - 06d66ab109d4d2eddb2794d21526d140 # Retags
           - 07a32f77690263bb9fda1842db7e273f # VOSTFR
           - b4a1b3d705159cdca36d71e57ca86871 # Anime Raws
           - e3515e519f3b1360cbfc17651944354c # Anime LQ Groups
