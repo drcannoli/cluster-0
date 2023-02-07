@@ -68,9 +68,9 @@ spec:
       method.insert = cfg.session,  private|const|string, (cat,(cfg.basedir),".session/")
       method.insert = cfg.watch,    private|const|string, (cat,(cfg.download),"watch/")
       # Add new method to get finished dir (called get_finished_dir)
-      method.insert = d.get_finished_dir,simple,"cat=zCompleted/,$d.custom1="
+      method.insert = d.get_finished_dir,simple,"cat=(cfg.download),zCompleted/,$d.custom1="
       # Bind event "torrent has finished" to action "move to new directory based on label"
-      method.set_key = event.download.finished,move_complete,"d.directory.set=$d.get_finished_dir=;execute=mkdir,-p,$d.get_finished_dir=;execute=mv,-u,$d.base_path=,$d.get_finished_dir="
+      method.set_key = event.download.finished,move_complete,"d.directory.set=$d.get_finished_dir=;execute=mkdir,-p,$d.get_finished_dir=;execute=mv,$d.base_path=,$d.get_finished_dir="
       fs.mkdir.recursive = (cat,(cfg.basedir))
       fs.mkdir = (cat,(cfg.download))
       fs.mkdir = (cat,(cfg.logs))
