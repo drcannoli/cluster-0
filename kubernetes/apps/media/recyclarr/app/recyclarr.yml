@@ -2,7 +2,7 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/recyclarr/recyclarr/master/schemas/config-schema.json
 sonarr:
   tv:
-    base_url: http://sonarr:8989
+    base_url: http://sonarr:8989/sonarr
     api_key: !env_var SONARR__API_KEY
     delete_old_custom_formats: false
     quality_definition:
@@ -55,7 +55,7 @@ sonarr:
           - e1a997ddb54e3ecbfe06341ad323c458 # Obfuscated
           - 06d66ab109d4d2eddb2794d21526d140 # Retags
   anime:
-    base_url: http://sonarr-anime:8989
+    base_url: http://sonarr-anime:8989/sonarr
     api_key: !env_var SONARR_ANIME__API_KEY
     delete_old_custom_formats: false
     quality_definition:
@@ -98,7 +98,7 @@ sonarr:
 
 radarr:
   movies:
-    base_url: http://radarr:7878
+    base_url: http://radarr:7878/radarr
     api_key: !env_var RADARR__API_KEY
     delete_old_custom_formats: false
     quality_definition:
@@ -153,7 +153,7 @@ radarr:
           - ae9b7c9ebde1f3bd336a8cbd1ec4c5e5 # No-RlsGroup removed do avoid multiple downloads
           - 9170d55c319f4fe40da8711ba9d8050d # x265
   animemovies:
-    base_url: http://radarr-anime:7878
+    base_url: http://radarr-anime:7878/radarr
     api_key: !env_var RADARR_ANIME__API_KEY
     delete_old_custom_formats: false
     quality_definition:
