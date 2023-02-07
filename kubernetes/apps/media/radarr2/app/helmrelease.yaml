@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: radarr2
+  name: radarr-anime
   namespace: media
 spec:
   interval: 15m
@@ -37,7 +37,7 @@ spec:
         annotations:
           kubernetes.io/ingress.class: "nginx"
         hosts:
-          - host: &host "radarr2.${SECRET_DOMAIN}"
+          - host: &host "radarr-anime.${SECRET_DOMAIN}"
             paths:
               - path: /
                 pathType: Prefix
