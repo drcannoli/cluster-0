@@ -232,7 +232,5 @@ radarr:
           - c259005cbaeb5ab44c06eddb4751e70c # v0
           - 9172b2f683f6223e3a1846427b417a3d # VOSTFR
         quality_profiles:
-          - name: HD
-            reset_unmatched_scores: true
-          - name: SD
+          - name: Remux-1080p - Anime
             reset_unmatched_scores: true
