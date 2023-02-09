@@ -31,12 +31,18 @@ spec:
       LOCAL_RELAY_PORT: "32499"
     service:
       main:
+        primary: true
         type: LoadBalancer
         externalTrafficPolicy: Local
         annotations:
           metallb.universe.tf/allow-shared-ip: plex
         port:
           port: 32400
+      relay:
+        primary: false
+        type: clusterIP
+        port:
+          port: 32499
     ingress:
       main:
         enabled: true
