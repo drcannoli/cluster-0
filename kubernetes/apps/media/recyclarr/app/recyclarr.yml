@@ -43,7 +43,6 @@ sonarr:
           - 17e889ce13117940092308f48b48b45b # HLG
           - 2a7e3be05d3861d6df7171ec74cad727 # PQ
           # Unwanted
-          - 32b367365729d530ca1c124a0b180c64 # Bad Dual Groups
           - 85c61753df5da1fb2aab6f2a47426b09 # BR-DISK
           - 9c11cd3f07101cdba90a2d81cf0e56b4 # LQ
           - 82d40da2bc6923f41e14394075dd4b03 # No-RlsGroup
@@ -157,6 +156,9 @@ radarr:
       type: movie
     custom_formats:
       - trash_ids:
+          # Misc
+          - 9170d55c319f4fe40da8711ba9d8050d # x265
+          # Anime
           - fb3ccc5d5cc8f77c9055d4cb4561dded # Anime BD Tier 01 (Top SeaDex Muxers)
           - 66926c8fa9312bc74ab71bf69aae4f4a # Anime BD Tier 02 (SeaDex Muxers)
           - fa857662bad28d5ff21a6e611869a0ff # Anime BD Tier 03 (SeaDex Muxers)
