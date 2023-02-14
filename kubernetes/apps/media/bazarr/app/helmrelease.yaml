@@ -31,6 +31,11 @@ spec:
       tag: 1.1.4
     env:
       TZ: America/New_York
+    service:
+      main:
+        ports:
+          http:
+            port: 6767
     ingress:
       main:
         enabled: true
@@ -53,6 +58,10 @@ spec:
         enabled: true
         existingClaim: nfs-media-pvc
         mountPath: /mnt/media
+      add-ons:
+        enabled: true
+        type: emptyDir
+        mountPath: /add-ons
     podSecurityContext:
       runAsUser: 568
       runAsGroup: 568
