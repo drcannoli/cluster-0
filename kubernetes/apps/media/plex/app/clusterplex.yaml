@@ -202,10 +202,9 @@ spec:
               mountPath: /codecs
             - name: transcode
               mountPath: /transcode
-          # resources:              # adapt requests and limits to your needs
-          #   requests:
-          #     cpu: 500m
-          #     memory: 200Mi
+          resources:
+            requests:
+              cpu: 7
           #   limits:
           #     cpu: 3000m
           #     memory: 800Mi

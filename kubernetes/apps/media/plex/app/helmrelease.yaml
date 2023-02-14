@@ -70,3 +70,6 @@ spec:
         existingClaim: nfs-media-pvc
         mountPath: /mnt/media
         readOnly: false
+    resources:
+      requests:
+        cpu: 6
