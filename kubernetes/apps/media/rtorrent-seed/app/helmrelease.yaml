@@ -115,7 +115,7 @@ spec:
             repository: ghcr.io/k8s-at-home/wireguard
             tag: v1.0.20210914
             pullPolicy: IfNotPresent
-        configFileSecret: wireguard-secret
+        configFileSecret: wireguard-secret-seed
         securityContext:
           privileged: true
           allowPrivilegeEscalation: true
