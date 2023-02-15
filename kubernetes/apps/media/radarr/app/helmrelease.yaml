@@ -48,7 +48,7 @@ spec:
       config:
         enabled: true
         storageClass: "freenas-iscsi-csi"
-        size: 5Gi
+        size: 10Gi
       media:
         enabled: true
         existingClaim: nfs-media-pvc
