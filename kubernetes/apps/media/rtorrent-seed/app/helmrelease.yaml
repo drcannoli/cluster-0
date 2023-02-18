@@ -16,6 +16,7 @@ spec:
         namespace: flux-system
   values:
     podAnnotations:
+      configmap.reloader.stakater.com/reload: rtorrent-seed-rtorrent-flood-config
       secret.reloader.stakater.com/reload: wireguard-secret-seed
     image:
       repository: jesec/rtorrent-flood
