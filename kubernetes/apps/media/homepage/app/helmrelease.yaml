@@ -26,6 +26,8 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    podAnnotations:
+      secret.reloader.stakater.com/reload: homepage-secret
     image:
       repository: ghcr.io/benphelps/homepage
       tag: v0.6.7
@@ -56,41 +58,12 @@ spec:
         tls:
           - hosts:
               - *host
-    config:
-      bookmarks:
-        - Developer:
-            - Github:
-                - abbr: GH
-                  href: https://github.com/
-      services:
-        - My First Group:
-            - My First Service:
-                href: http://localhost/
-                description: Homepage is awesome
-        - My Second Group:
-            - My Second Service:
-                href: http://localhost/
-                description: Homepage is the best
-        - My Third Group:
-            - My Third Service:
-                href: http://localhost/
-                description: Homepage
-      widgets:
-        - kubernetes:
-            cluster:
-              show: true
-              cpu: true
-              memory: true
-              showLabel: true
-              label: "cluster"
-            nodes:
-              show: true
-              cpu: true
-              memory: true
-              showLabel: true
-        - search:
-            provider: duckduckgo
-            target: _blank
-      kubernetes:
-        mode: cluster
-      settings:
+    persistence:
+      config:
+        enabled: true
+        type: secret
+        name: homepage-secret
+        mountPath: /app/config
+        defaultMode: 0775
+        readOnly: true
+    config: ''
