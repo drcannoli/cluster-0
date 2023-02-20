@@ -72,4 +72,4 @@ spec:
         readOnly: false
     resources:
       requests:
-        cpu: 6
+        cpu: 12
