@@ -17,7 +17,7 @@ spec:
   values:
     image:
       repository: ghcr.io/linuxserver/plex
-      tag: 1.30.2.6563-3d4dc0cce-ls150
+      tag: 1.31.0
     env:
       VERSION: docker
       TZ: "America/New_York"
@@ -50,6 +50,23 @@ spec:
         tls:
           - hosts:
               - *host
+    podLabels:
+      app.kubernetes.io/part-of: clusterplex
+    affinity:
+      podAntiAffinity:
+        preferredDuringSchedulingIgnoredDuringExecution:
+          - podAffinityTerm:
+              labelSelector:
+                matchLabels:
+                  name: clusterplex-worker
+              topologyKey: kubernetes.io/hostname
+            weight: 50
+          - podAffinityTerm:
+              labelSelector:
+                matchLabels:
+                  name: plex
+              topologyKey: kubernetes.io/hostname
+            weight: 100
     persistence:
       config:
         enabled: true

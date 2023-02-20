@@ -165,7 +165,7 @@ spec:
             - podAffinityTerm:
                 labelSelector:
                   matchLabels:
-                    name: clusterplex-pms
+                    name: plex
                 topologyKey: kubernetes.io/hostname
               weight: 50
       containers:
