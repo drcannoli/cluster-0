@@ -27,7 +27,7 @@ spec:
     keepHistory: false
   values:
     podAnnotations:
-      secret.reloader.stakater.com/reload: homepage-secret
+      configmap.reloader.stakater.com/reload: homepage-config
     image:
       repository: ghcr.io/benphelps/homepage
       tag: v0.6.7
