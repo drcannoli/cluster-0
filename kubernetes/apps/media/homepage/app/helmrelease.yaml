@@ -58,12 +58,5 @@ spec:
         tls:
           - hosts:
               - *host
-    persistence:
-      config:
-        enabled: true
-        type: secret
-        name: homepage-secret
-        mountPath: /app/config
-        defaultMode: 0775
-        readOnly: true
-    config: ''
+    config:
+      useExistingConfigMap: homepage-config
