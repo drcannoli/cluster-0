@@ -28,7 +28,7 @@ spec:
   values:
     image:
       repository: ghcr.io/onedr0p/prowlarr-nightly
-      tag: 1.3.0.2725
+      tag: 1.3.0.2746
     env:
       TZ: America/New_York
     ingress:
