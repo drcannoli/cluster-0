@@ -30,7 +30,7 @@ spec:
       configmap.reloader.stakater.com/reload: homepage-config
     image:
       repository: ghcr.io/benphelps/homepage
-      tag: v0.6.9
+      tag: v0.6.10
     env:
       TZ: America/New_York
     serviceAccount:
