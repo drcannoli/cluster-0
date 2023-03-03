@@ -170,7 +170,7 @@ spec:
               weight: 50
       containers:
         - name: plex-worker
-          image: ghcr.io/linuxserver/plex:1.31.0
+          image: ghcr.io/linuxserver/plex:1.31.1
           startupProbe:
             httpGet:
               path: /health

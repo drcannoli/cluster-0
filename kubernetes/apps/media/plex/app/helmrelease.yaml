@@ -17,7 +17,7 @@ spec:
   values:
     image:
       repository: ghcr.io/linuxserver/plex
-      tag: 1.31.0
+      tag: 1.31.1
     env:
       VERSION: docker
       TZ: "America/New_York"
